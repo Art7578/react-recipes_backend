@@ -1,12 +1,22 @@
 import express from "express";
 import multer from "multer";
 import cors from 'cors';
+import dotenv from "dotenv";
+import mongoose from 'mongoose';
 
 import { registerValidation, loginValidation, recipeCreateValidation } from "./validation.js";
 import { checkAuth } from "./utils/checkAuth.js";
 import { handleErrors } from "./utils/handleErrors.js";
 import { register, login, addToFavorites, removeFromFavorites } from "./controllers/UserController.js";
 import { create, getAll, getOne, remove, update } from "./controllers/RecipeController.js";
+
+dotenv.config();
+const {DB_HOST, PORT} = process.env;
+
+mongoose
+    .connect(DB_HOST)
+    .then(() => console.log("DB connection OK!"))
+    .catch((error) => console.log("DB error", error));
 
 const app = express()
 
