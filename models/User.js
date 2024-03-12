@@ -19,7 +19,10 @@ const UserSchema = new mongoose.Schema(
             type: String, 
             default: null 
         },
-        favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Recipe' }]
+        favorites: { 
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'Recipe' 
+        },
     }, 
     {
         timestamps: true,

@@ -39,23 +39,15 @@ const RecipeSchema = new mongoose.Schema(
             required: true,
         },
         nutritional_info: {
-            calories: {
-                type: Number,
-                required: true,
-            },
-            protein: {
-                type: Number,
-                required: true,
-            },
-            carbohydrates: {
-                type: Number,
-                required: true,
-            },
-            fat: {
-                type: Number,
-                required: true,
-            },
+            type: Array,
+            required: true,
         },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
+        
     },
     {
         timestamps: true,
