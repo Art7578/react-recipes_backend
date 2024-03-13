@@ -47,16 +47,16 @@ app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     });
 });
 
-app.post('/recipe', 
+app.post('/recipes', 
     checkAuth, 
     recipeCreateValidation, 
     handleErrors, 
     create
 );
-app.get('/recipe', getAll);
-app.get('/recipe/:id', getOne);
-app.delete('/recipe/:id', checkAuth, remove);
-app.patch('/recipe/:id',
+app.get('/recipes', getAll);
+app.get('/recipes/:id', getOne);
+app.delete('/recipes/:id', checkAuth, remove);
+app.patch('/recipes/:id',
     checkAuth,
     recipeCreateValidation,
     handleErrors,
