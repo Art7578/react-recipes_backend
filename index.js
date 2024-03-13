@@ -14,7 +14,7 @@ dotenv.config();
 const {DB_HOST, PORT} = process.env;
 
 mongoose
-    .connect(DB_HOST)
+    .connect(DB_HOST, { dbName: 'recipes_book' })
     .then(() => console.log("DB connection OK!"))
     .catch((error) => console.log("DB error", error));
 
